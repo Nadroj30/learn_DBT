@@ -1,0 +1,9 @@
+version: 2
+
+models:
+    - name: stg_orders
+      columns:
+        - name: order_id # Clé primaire 
+        - name: customer_id # Clé étrangère Customers
+        - name: order_date # Date de commande
+        - name: store_id # Clé étrangère Stores
