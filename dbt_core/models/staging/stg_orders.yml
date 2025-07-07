@@ -1,9 +1,21 @@
 version: 2
 
 models:
-    - name: stg_orders
+    - name: stg_orders # Clé primaire 
       columns:
-        - name: order_id # Clé primaire 
-        - name: customer_id # Clé étrangère Customers
+        - name: order_id 
+          tests:
+            - not_null
+            - unique
+        - name: customer_id # Clé étrangère liant le cliant
+          tests:
+            - not_null
+            - relationships:
+                to: ref('stg_customers')
+                field: customer_id
         - name: order_date # Date de commande
-        - name: store_id # Clé étrangère Stores
+          tests:
+            - not_null
+        - name: store_id # Clé étrangère 
+          tests:
+            - not_null
