@@ -1,0 +1,19 @@
+version: 2
+
+models:
+    - name: stg_status
+      description: Status de clients avec le nombre de commandes requises pour atteindre chaque status.
+      columns:
+        - name: customer_status
+          description: Status gold, silver ou bronze.
+          tests:
+            - not_null
+            - unique
+        - name: min_order_count
+          description: Nombre minimal de commandes pour atteindre chaque status.
+          tests:
+            - not_null
+        - name: max_order_count
+          description: Nombre maximal à atteindre pour chaque status.
+          tests:
+            - not_null
